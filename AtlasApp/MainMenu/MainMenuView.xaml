@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="AtlasApp.MainMenu.MainMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mainMenu="clr-namespace:AtlasApp.MainMenu"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" 
+             d:DesignWidth="600"
+             d:DataContext="{d:DesignInstance mainMenu:MainMenuViewModel}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/MainMenuBackground.jpg" />
+        </Grid.Background>
+
+        <Border Background="#CC000000"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                Padding="0 14">
+            <WrapPanel HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       >
+                <Button Style="{StaticResource MainMenuButton}"
+                        Command="{Binding StartAtlasCommand}">
+                    <Path Data="{StaticResource PlayGeo}"
+                          Style="{StaticResource DefaultPathStyle}"/>
+                </Button>
+                
+                <Button Style="{StaticResource MainMenuButton}"
+                        Command="{Binding StartTeamSpeakCommand}">
+                    <Path Data="{StaticResource TeamSpeakGeo}"
+                          Style="{StaticResource DefaultPathStyle}"/>
+                </Button>
+
+                <Button Style="{StaticResource MainMenuButton}"
+                        Command="{Binding NavigateToMapCommand}">
+                    <Path Data="{StaticResource MapGeo}"
+                          Style="{StaticResource DefaultPathStyle}"/>
+                </Button>
+
+                <Button Style="{StaticResource MainMenuButton}"
+                        Command="{Binding OpenSupportMailCommand}">
+                    <Path Data="{StaticResource MailGeo}"
+                          Style="{StaticResource DefaultPathStyle}"/>
+                </Button>
+
+                <Button Style="{StaticResource MainMenuButton}"
+                        Command="{Binding NavigateToTwitchCommand}">
+                    <Path Data="{StaticResource MonitorGeo}"
+                          Style="{StaticResource DefaultPathStyle}"/>
+                </Button>
+            </WrapPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AtlasApp
+namespace AtlasApp.MainMenu
 {
-    /// <summary>
-    /// Interaktionslogik für Window1.xaml
-    /// </summary>
-    public partial class Map : Window
+    public partial class MainMenuView : UserControl
     {
-        public Map()
+        public MainMenuView(MainMenuViewModel viewModel)
         {
+            DataContext = viewModel;
             InitializeComponent();
         }
     }

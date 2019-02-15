@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AtlasApp.AppComposition;
+using AtlasApp.MainMenu;
+using LightInject;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -8,10 +11,38 @@ using System.Windows;
 
 namespace AtlasApp
 {
-    /// <summary>
-    /// Interaktionslogik für "App.xaml"
-    /// </summary>
     public partial class App : Application
     {
+        private readonly ServiceContainer _container;
+        private readonly Uri _teamSpeakUri = new Uri("ts3server://ts.ggu-servers.de:9987");
+        private readonly Uri _atlasUri = new Uri("steam://connect/176.57.181.109:29615");
+        private readonly Uri _supportMailUri = new Uri("mailto:support@ggu-servers.de?subject=[SUPPORT]Ich brauche Hilfe");
+
+        public App()
+        {
+            _container = new ServiceContainer(new ContainerOptions()
+                                                  {
+                                                      EnablePropertyInjection = false
+                                                  });
+        }
+
+        protected override async void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            _container.RegisterApplicationShell()
+                      .RegisterMainMenu(_teamSpeakUri,
+                                        _atlasUri,
+                                        _supportMailUri)
+                      .RegisterMap()
+                      .RegisterTwitch();
+
+            MainWindow = _container.GetInstance<MainWindow>();
+            MainWindow.Show();
+
+            await Task.Delay(200);
+
+            _container.GetInstance<INavigator>().NavigateTo(_container.GetInstance<MainMenuView>());
+        }
     }
 }

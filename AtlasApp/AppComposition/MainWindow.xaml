@@ -1,0 +1,40 @@
+﻿<mahapps:MetroWindow x:Class="AtlasApp.AppComposition.MainWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                     WindowTitleBrush="{StaticResource AccentColorBrush}"
+                     xmlns:appComposition="clr-namespace:AtlasApp.AppComposition"
+                     mc:Ignorable="d"
+                     Title="AtlasApp by Draakoor" 
+                     Height="450" 
+                     Width="800" 
+                     d:DataContext="{d:DesignInstance appComposition:MainWindowViewModel}"
+                     >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" 
+                HorizontalAlignment="Left"
+                Margin="20 8 0 8"
+                Width="32"
+                Height="32"
+                Visibility="{Binding IsNavigateBackVisible, Converter={StaticResource BooleanToVisibilityConverter}}"                
+                Command="{Binding NavigateBackCommand}"
+                Style="{StaticResource BaseButtonStyle}"
+                >
+            <Path Data="{StaticResource BackGeo}"
+                  Style="{StaticResource DefaultPathStyle}"
+                  Height="20"/>
+        </Button>
+        
+        <mahapps:TransitioningContentControl Grid.Row="1" 
+                                             Content="{Binding CurrentView}"
+                                             Transition="Left"
+                                             />
+    </Grid>
+</mahapps:MetroWindow>
