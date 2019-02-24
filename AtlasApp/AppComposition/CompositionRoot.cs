@@ -21,14 +21,16 @@ namespace AtlasApp.AppComposition
         public static ServiceContainer RegisterMainMenu(this ServiceContainer container, 
                                                         Uri teamSpeakUri, 
                                                         Uri atlasUri, 
-                                                        Uri supportMailUri)
+                                                        Uri supportMailUri,
+                                                        Uri homepageUri)
         {
             container.Register<MainMenuView>(new PerContainerLifetime())
                      .Register<MainMenuViewModel>(c => new MainMenuViewModel(c.GetInstance<NavigateToMapCommand>(),
                                                                              c.GetInstance<NavigateToTwitchCommand>(),
                                                                              teamSpeakUri,
                                                                              atlasUri,
-                                                                             supportMailUri), 
+                                                                             supportMailUri,
+                                                                             homepageUri), 
                                                   new PerContainerLifetime())
                      .Register<NavigateToMapCommand>(c => new NavigateToMapCommand(c), 
                                                      new PerContainerLifetime())

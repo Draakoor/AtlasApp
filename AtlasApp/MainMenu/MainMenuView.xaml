@@ -49,6 +49,11 @@
                     <Path Data="{StaticResource MonitorGeo}"
                           Style="{StaticResource DefaultPathStyle}"/>
                 </Button>
+                <Button Style="{StaticResource MainMenuButton}"
+                        Command="{Binding OpenBrowserHomepage}">
+                    <Path Data="{StaticResource HomepageGeo}"
+                          Style="{StaticResource DefaultPathStyle}"/>
+                </Button>
             </WrapPanel>
         </Border>
     </Grid>

@@ -14,9 +14,10 @@ namespace AtlasApp
     public partial class App : Application
     {
         private readonly ServiceContainer _container;
-        private readonly Uri _teamSpeakUri = new Uri("ts3server://ts.ggu-servers.de:9987");
+        private readonly Uri _teamSpeakUri = new Uri("http://discord.ded-chaotentruppe.de");
         private readonly Uri _atlasUri = new Uri("steam://connect/176.57.181.109:29615");
         private readonly Uri _supportMailUri = new Uri("mailto:support@ggu-servers.de?subject=[SUPPORT]Ich brauche Hilfe");
+        private readonly Uri _HomepageUri = new Uri("http://ded-chaotentruppe.de");
 
         public App()
         {
@@ -33,7 +34,8 @@ namespace AtlasApp
             _container.RegisterApplicationShell()
                       .RegisterMainMenu(_teamSpeakUri,
                                         _atlasUri,
-                                        _supportMailUri)
+                                        _supportMailUri,
+                                        _HomepageUri)
                       .RegisterMap()
                       .RegisterTwitch();
 

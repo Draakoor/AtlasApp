@@ -7,10 +7,11 @@
                      WindowTitleBrush="{StaticResource AccentColorBrush}"
                      xmlns:appComposition="clr-namespace:AtlasApp.AppComposition"
                      mc:Ignorable="d"
-                     Title="AtlasApp by Draakoor" 
+                     Title="AtlasApp by Draakoor"
+                     ShowIconOnTitleBar="true"
                      Height="450" 
                      Width="800" 
-                     d:DataContext="{d:DesignInstance appComposition:MainWindowViewModel}"
+                     d:DataContext="{d:DesignInstance appComposition:MainWindowViewModel}" Icon="/AtlasApp;component/ded.ico"
                      >
     <Grid>
         <Grid.RowDefinitions>
