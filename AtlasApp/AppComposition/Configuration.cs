@@ -11,8 +11,9 @@ namespace AtlasApp.AppComposition
     {
         public static IReadOnlyList<TwitchStreamer> Streamers = new List<TwitchStreamer>()
         {
-            new TwitchStreamer("Kevin", new Uri("https://twitch.tv/draakoor")),
-            new TwitchStreamer("Dominik", new Uri("https://twitch.tv/draakoor"))
+            new TwitchStreamer("Draakoor", new Uri("https://twitch.tv/draakoor")),
+            new TwitchStreamer("DragonFighter", new Uri("https://twitch.tv/dragonfighter666")),
+            new TwitchStreamer("EvilGirly", new Uri("https://twitch.tv/evilgirly_666"))
         };
     }
 }

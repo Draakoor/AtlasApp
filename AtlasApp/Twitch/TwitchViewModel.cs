@@ -2,9 +2,8 @@
 using Light.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AtlasApp.Twitch
 {
@@ -32,9 +31,7 @@ namespace AtlasApp.Twitch
             set => this.SetIfDifferent(ref _webBrowserUri, value);
         }
 
-        public void SelectStreamer(TwitchStreamer streamer)
-        {
-            WebBrowserUri = streamer.Uri;
-        }
+        public void SelectStreamer(TwitchStreamer streamer) => 
+            Process.Start(new ProcessStartInfo(streamer.Uri.AbsoluteUri));
     }
 }

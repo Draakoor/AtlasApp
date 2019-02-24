@@ -13,9 +13,8 @@
             <ImageBrush ImageSource="/Resources/MainMenuBackground.jpg"/>
         </Grid.Background>
 
-        <Image Source="/Resources\atlasmap.png" 
-               />
+        <Image Source="/Resources\atlasmap.png" />
 
-        <Ellipse Name="Marker1" Fill="Red" Margin="0,179,152,0" Width="10" Height="10"/>
+        <!--<Ellipse Name="Marker1" Fill="Red" Margin="0,179,152,0" Width="10" Height="10"/>-->
     </Grid>
 </UserControl>
